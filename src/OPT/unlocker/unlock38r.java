@@ -17,9 +17,22 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import OPT.*;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -54,6 +67,8 @@ public class unlock38r extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        ind = new javax.swing.JProgressBar();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -84,6 +99,9 @@ public class unlock38r extends javax.swing.JDialog {
         barra = new javax.swing.JProgressBar();
         jLabel21 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jButton14 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -92,6 +110,7 @@ public class unlock38r extends javax.swing.JDialog {
         jLabel14.setName("jLabel14"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle(bundle.getString("unlock38r.title")); // NOI18N
         setName("Form"); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -122,7 +141,7 @@ public class unlock38r extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,6 +166,11 @@ public class unlock38r extends javax.swing.JDialog {
 
         jButton4.setText(bundle.getString("unlock38r.jButton4.text")); // NOI18N
         jButton4.setName("jButton4"); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText(bundle.getString("unlock38r.jButton5.text")); // NOI18N
         jButton5.setName("jButton5"); // NOI18N
@@ -161,20 +185,38 @@ public class unlock38r extends javax.swing.JDialog {
             }
         });
 
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText(bundle.getString("unlock38r.jLabel24.text")); // NOI18N
+        jLabel24.setName("jLabel24"); // NOI18N
+
+        ind.setIndeterminate(true);
+        ind.setName("ind"); // NOI18N
+        ind.setVisible(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(171, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(188, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(166, 166, 166))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(135, 135, 135))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(ind, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,14 +229,18 @@ public class unlock38r extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ind, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel2, "card2");
 
         jPanel3.setName("jPanel3"); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText(bundle1.getString("driver_danger")); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
 
@@ -211,23 +257,24 @@ public class unlock38r extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(234, 234, 234)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
+                .addGap(126, 126, 126)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel3, "card3");
@@ -300,10 +347,6 @@ public class unlock38r extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -327,15 +370,18 @@ public class unlock38r extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel10)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton7)
@@ -352,7 +398,7 @@ public class unlock38r extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel10))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel4, "card4");
@@ -424,7 +470,7 @@ public class unlock38r extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 17, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -485,6 +531,7 @@ public class unlock38r extends javax.swing.JDialog {
 
         barra.setName("barra"); // NOI18N
 
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel21.setText(bundle.getString("unlock38r.jLabel21.text")); // NOI18N
         jLabel21.setName("jLabel21"); // NOI18N
 
@@ -496,32 +543,65 @@ public class unlock38r extends javax.swing.JDialog {
             }
         });
 
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText(bundle.getString("unlock38r.jLabel22.text")); // NOI18N
+        jLabel22.setName("jLabel22"); // NOI18N
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel23.setText(bundle.getString("unlock38r.jLabel23.text")); // NOI18N
+        jLabel23.setName("jLabel23"); // NOI18N
+
+        jButton14.setText(bundle.getString("unlock38r.jButton14.text")); // NOI18N
+        jButton14.setToolTipText(bundle.getString("unlock38r.jButton14.toolTipText")); // NOI18N
+        jButton14.setName("jButton14"); // NOI18N
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGap(107, 107, 107)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGap(270, 270, 270)
-                            .addComponent(jButton13))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(163, 163, 163)
+                                .addComponent(jButton13))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel6, "card6");
@@ -612,17 +692,7 @@ if (step == 1){
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-    try {        
-            JFileChooser jfc = new JFileChooser();
-            jfc.setDialogTitle(java.util.ResourceBundle.getBundle("OPT/Bundle").getString("PLEASE SELECT A FILE"));
-            jfc.setFileFilter(new FileNameExtensionFilter(java.util.ResourceBundle.getBundle("OPT/Bundle").getString("ZIP FILES"), java.util.ResourceBundle.getBundle("OPT/Bundle").getString("ZIP")));
-            jfc.showDialog(this, java.util.ResourceBundle.getBundle("OPT/Bundle").getString("SELECT"));
-            jfc.setVisible(true);
-            File filename = jfc.getSelectedFile();
-            primaryzip = filename.getCanonicalPath();// TODO add your handling code here:
-        } catch (IOException ex) {
-            Logger.getLogger(CM11S.class.getName()).log(Level.SEVERE, null, ex);
-        }     // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -643,7 +713,97 @@ uuh.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        
+            try {
+                JFileChooser jfc = new JFileChooser();
+                jfc.setDialogTitle(java.util.ResourceBundle.getBundle("OPT/Bundle").getString("PLEASE SELECT A FILE"));
+                jfc.setFileFilter(new FileNameExtensionFilter(java.util.ResourceBundle.getBundle("OPT/Bundle").getString("ZIP FILES"), "7z"));
+                jfc.showDialog(this, java.util.ResourceBundle.getBundle("OPT/Bundle").getString("SELECT"));
+                jfc.setVisible(true);
+                File filename = jfc.getSelectedFile();
+                primaryzip = filename.getCanonicalPath();// TODO add your handling code here:
+            } catch (IOException ex) {
+                Logger.getLogger(CM11S.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jLabel24.setText("Checking SHA1 hash... Please wait");
+            ind.setVisible(true);
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
+            
+            
+            Runnable helloRunnable = new Runnable() {
+    @Override
+    public void run() {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA1");
+            FileInputStream fc = new FileInputStream(primaryzip);
+            byte[] dataBytes = new byte[1024];
+            
+            int nread = 0;
+            
+            while ((nread = fc.read(dataBytes)) != -1) {
+                md.update(dataBytes, 0, nread);
+            };
+            
+            byte[] mdbytes = md.digest();
+            StringBuilder sb = new StringBuilder("");
+            for (int i = 0; i < mdbytes.length; i++) {
+                sb.append(Integer.toString((mdbytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            String selectedsha1 = sb.toString();
+            System.out.println("Digest(in hex format):: " + sb.toString());
+            if ("bcbd07b6efeebaad3ef9aec9c7b330c19ee83ae8".equals(selectedsha1)){
+                jLabel24.setText("<html>SHA1 hash is correct. Extracting files... This might take a while.");
+            }else {
+                jLabel24.setText("Bad file or download is corrupted. Redownload the file.");
+                            jButton2.setEnabled(true);
+                            ind.setVisible(false);
+                           
+
+            }
+            
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(unlock38r.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(unlock38r.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(unlock38r.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+                List<String> command = Arrays.asList(path + "\\tools\\downloads\\7za.exe", "x", "-otools\\downloads\\unlock\\", primaryzip);
+                File dir = new File(path);
+                ProcessBuilder builder = new ProcessBuilder();
+                builder.redirectErrorStream(true); 
+                builder.command(command);
+                builder.directory(dir); 
+                Process process = builder.start();        
+                InputStream is = process.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                try {
+                    String line = reader.readLine();
+                    while (line != null) {
+                        LogWriter uhhh = new LogWriter(line, line);
+                        line = reader.readLine();
+                    }
+                    try {
+                        process.waitFor();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(worker.class.getName()).log(Level.SEVERE, null, ex);
+                    }reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }            
+            } catch (IOException ex) {
+                Logger.getLogger(worker.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        ind.setVisible(false);
+        jLabel24.setText("Done! Click next to continue");
+        jButton1.setEnabled(true);
+            jButton2.setEnabled(true);
+    }
+};
+    Thread thread = new Thread(helloRunnable);
+    thread.start();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -707,7 +867,7 @@ uyy.setVisible(true);// TODO add your handling code here:
         if (uu.ADBConnected() == true) {
             try {
                 String fpathunlockb = path + "\\tools\\adb_files\\adb.exe";
-                String[] args = {"cmd","/c","start", "One Plus One Toolkit", fpathunlockb, "sideload", path + "\\tools\\downloads\\unlocker38\\1.zip"};
+                String[] args = {"cmd","/c","start", "One Plus One Toolkit", fpathunlockb, "sideload", path + "\\tools\\downloads\\unlock\\1.zip"};
                 Runtime rt = Runtime.getRuntime();
                 ProcessBuilder pb = new ProcessBuilder(args);
                 Process pr = pb.start();        // TODO add your handling code here:
@@ -727,12 +887,71 @@ uyy.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+      try {
+            ArrayList<String> ret = new ArrayList<String>();
+            
+            List<String> command = Arrays.asList(path + "\\tools\\adb_files\\adb.exe", "reboot", "recovery");
+            File dir = new File(path);
+            // CWD for process
+            
+            ProcessBuilder builder = new ProcessBuilder();
+            builder.redirectErrorStream(true); // This is the important part
+            builder.command(command);
+            
+            builder.directory(dir);
+            
+            Process process = builder.start();        // TODO add your handling code here:
+        } catch (IOException ex) {
+            Logger.getLogger(unlock38r.class.getName()).log(Level.SEVERE, null, ex);
+        }  // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    public void update(){
+      int progress = worker1.barper();
+        this.barra.setValue(progress);
+        this.jLabel22.setText(worker1.statusgetter());
+        if (progress == 100) {
+           LogWriter uhh = new LogWriter(worker1.outputgetter(),worker1.outputgetter());
+            executor.shutdown();
+        }
+      
+    }
+    
+    
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+  jButton13.setEnabled(false);
+        worker1 = new worker();    
+  worker1.start();
+            
+  
+  Runnable helloRunnable = new Runnable() {
+    @Override
+    public void run() {
+        update();
+        
+    }
+};
+
+executor = Executors.newScheduledThreadPool(1);
+executor.scheduleAtFixedRate(helloRunnable, 0, 10, TimeUnit.MILLISECONDS);
+      
+        
+
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+try
+        {
+            Desktop.getDesktop().browse(new URL("http://manudp.ga/downloads/toolkit_files/unlock.7z").toURI());
+        }
+        catch (IOException | URISyntaxException e) {}        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -780,13 +999,18 @@ public int step = 1;
 public int totalsteps = 7;
 public String primaryzip = null;
 public String path = System.getProperty("user.dir");
+worker worker1;
+ScheduledExecutorService executor;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JProgressBar barra;
+    javax.swing.JProgressBar ind;
     javax.swing.JButton jButton1;
     javax.swing.JButton jButton10;
     javax.swing.JButton jButton11;
     javax.swing.JButton jButton12;
     javax.swing.JButton jButton13;
+    javax.swing.JButton jButton14;
     javax.swing.JButton jButton2;
     javax.swing.JButton jButton3;
     javax.swing.JButton jButton4;
@@ -809,6 +1033,9 @@ public String path = System.getProperty("user.dir");
     javax.swing.JLabel jLabel2;
     javax.swing.JLabel jLabel20;
     javax.swing.JLabel jLabel21;
+    javax.swing.JLabel jLabel22;
+    javax.swing.JLabel jLabel23;
+    javax.swing.JLabel jLabel24;
     javax.swing.JLabel jLabel3;
     javax.swing.JLabel jLabel4;
     javax.swing.JLabel jLabel5;

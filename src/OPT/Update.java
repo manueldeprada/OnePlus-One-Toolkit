@@ -247,7 +247,6 @@ public class Update extends javax.swing.JDialog {
 public void download(){
         try {
             URL url = new URL(link);
-            System.out.println(link);
             download1 = new Download(url);
         } catch (MalformedURLException ex) {
             Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);

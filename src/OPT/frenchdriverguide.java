@@ -6,6 +6,11 @@
 
 package OPT;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 /**
  *
  * @author Prada
@@ -58,6 +63,11 @@ public class frenchdriverguide extends javax.swing.JDialog {
         jLabel3.setText(bundle.getString("french0")); // NOI18N
 
         jButton1.setText(bundle.getString("frenchdownload")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,6 +220,14 @@ public class frenchdriverguide extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+try
+        {
+            Desktop.getDesktop().browse(new URL("http://visualgdb.com/UsbDriverTool/").toURI());
+        }
+        catch (IOException | URISyntaxException e) {}        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

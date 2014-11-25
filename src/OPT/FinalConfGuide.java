@@ -39,6 +39,7 @@ public class FinalConfGuide extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -66,36 +67,6 @@ public class FinalConfGuide extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("OPT/Bundle"); // NOI18N
@@ -111,21 +82,29 @@ public class FinalConfGuide extends javax.swing.JDialog {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/4d.jpg"))); // NOI18N
 
+        jButton4.setText(bundle.getString("LAUNCH DEVICE MANAGER")); // NOI18N
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(80, 80, 80))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(80, 80, 80))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +117,9 @@ public class FinalConfGuide extends javax.swing.JDialog {
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("1", jPanel2);
@@ -433,317 +414,6 @@ public class FinalConfGuide extends javax.swing.JDialog {
 
         jTabbedPane4.addTab("9", jPanel9);
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel21.setText(bundle.getString("<HTML>SAME AS BEFORE:<BR><BR>PLUG YOUR DEVICE WITH USB DEBUGGING ENABLED. <BR>LAUNCH DEVICE MANAGER USING BUTTON BELOW AND LOOK FOR WHATEVER UNCONFIGURED ITEM RESEMBLES YOUR DEVICE.<BR>MINE WAS SOMETHING LIKE THIS:")); // NOI18N
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/4c.jpg"))); // NOI18N
-
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/4d.jpg"))); // NOI18N
-
-        jLabel41.setText(bundle.getString("Final conf-1-step2")); // NOI18N
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(jLabel24)
-                .addGap(80, 80, 80))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel41)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel22)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel41)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel24)
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab("10", jPanel10);
-
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel25.setText(bundle.getString("finalconf2")); // NOI18N
-
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/07.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel26)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel26)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab(bundle.getString("11"), jPanel11); // NOI18N
-
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel27.setText(bundle.getString("finalconf3")); // NOI18N
-
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/08.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel27))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel28)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel27)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel28)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab(bundle.getString("12"), jPanel12); // NOI18N
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel29.setText(bundle.getString("finalconf4")); // NOI18N
-
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/09.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabel29)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel30)
-                .addGap(56, 56, 56))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel29)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel30)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab(bundle.getString("13"), jPanel13); // NOI18N
-
-        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel31.setText(bundle.getString("finalconf5")); // NOI18N
-
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/10.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel31))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel32)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel31)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel32)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab(bundle.getString("14"), jPanel14); // NOI18N
-
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel33.setText(bundle.getString("finalconf6")); // NOI18N
-
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/11.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel33))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel34)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel33)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel34)
-                .addContainerGap(162, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab(bundle.getString("15"), jPanel15); // NOI18N
-
-        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel35.setText(bundle.getString("PLEASE WAIT WHILE IT INSTALLS...")); // NOI18N
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/12.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel35))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel36)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel35)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel36)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab("16", jPanel16);
-
-        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel37.setText(bundle.getString("finalconf8")); // NOI18N
-
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/13.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel37))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel38)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel37)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel38)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab(bundle.getString("17"), jPanel17); // NOI18N
-
-        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel39.setText(bundle.getString("finalconf18")); // NOI18N
-
-        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/4e.jpg"))); // NOI18N
-
-        jButton5.setText(bundle.getString("REBOOT DEVICE")); // NOI18N
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(91, 91, 91))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel40)
-                .addGap(38, 38, 38)
-                .addComponent(jButton5)
-                .addContainerGap(247, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab("18", jPanel18);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -817,9 +487,9 @@ DevicesManager uu = new DevicesManager();
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -867,7 +537,7 @@ public String path = System.getProperty("user.dir");
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -881,43 +551,14 @@ public String path = System.getProperty("user.dir");
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
